@@ -15,11 +15,11 @@
 
   tasks:
     - name: Show entered credentials
-      ansible.builtin.debug:
+      apt:
         msg: "Hi, your username is {{ username }}, and your password is {{ password }}"
   tasks:
   -  name: Variables
-     ansible.builtin.debug:
+     apt:
        msg: "Im taking the {{ Course }} from {{ Name }}"
   
 
