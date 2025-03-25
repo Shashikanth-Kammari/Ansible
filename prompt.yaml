@@ -3,8 +3,10 @@
   hosts: localhost
   tasks:
   - name: Username
+    ansible.builtin.debug:
     Prompt: "Please enter the USERNAME: "
     private: false
   - name: Password
+    ansible.builtin.debug:
     Prompt: "Please enter the Password: "
     private: true
