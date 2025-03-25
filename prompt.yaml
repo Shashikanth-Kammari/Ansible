@@ -1,7 +1,7 @@
-- name: Prompt
+- name: Prompting variables
   become: true
   hosts: localhost
-  vars-prompt:
+  vars_prompt:
   - name: Username
     Prompt: "Please enter the USERNAME: "
     private: false
