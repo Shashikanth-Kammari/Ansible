@@ -1,6 +1,8 @@
 - name: Prompting variables
   become: true
   hosts: localhost
+  var:
+    course: "Devops"
   vars_prompt:
     - name: username
       prompt: "Please enter the USERNAME: "
@@ -13,6 +15,6 @@
   tasks:
     - name: Show entered credentials
       ansible.builtin.debug:
-        msg: "Hi, your username is {{ username }}, and your password is {{ password }}"
+        msg: "Hi, your username is {{ username }}, and your password is {{ password }}, {{ course }}"
 
      
