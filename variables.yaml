@@ -1,0 +1,11 @@
+- name: Varaibles
+  become: true
+  hosts: localhost
+  vars:
+    Course: "Devops"
+    Name: "shiva"
+  tasks:
+  -  name: Variables
+     ansible.builtin.debug:
+       msg: "Im taking the {{ Course }} from {{ Name }}"
+    
