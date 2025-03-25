@@ -1,7 +1,6 @@
 - name: Prompting variables
   become: true
   hosts: localhost
-  course: "devops"
   vars_prompt:
     - name: username
       prompt: "Please enter the USERNAME: "
