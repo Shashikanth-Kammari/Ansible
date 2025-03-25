@@ -13,6 +13,6 @@
   tasks:
     - name: Show entered credentials
       ansible.builtin.debug:
-        msg: "Hi, your username is {{ username }}, and your password is {{ password }}, {{ course }}"
+        msg: "Hi, your username is {{ username }}, and your password is {{ password }}"
 
      
