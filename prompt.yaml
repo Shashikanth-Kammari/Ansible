@@ -1,0 +1,10 @@
+- name: Prompt
+  become: true
+  hosts: localhost
+  tasks:
+  - name: Username
+    prompt: "Please enter the USERNAME: "
+    private: false
+  - name: Password
+    prompt: "Please enter the Password: "
+    private: true
