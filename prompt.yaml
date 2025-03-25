@@ -2,16 +2,17 @@
   become: true
   hosts: localhost
   vars_prompt:
-    - name: Username
-      Prompt: "Please enter the USERNAME: "
+    - name: username
+      prompt: "Please enter the USERNAME: "
       private: false
-    - name: Password
-      Prompt: "Please enter the Password: "
-      private: true
-  tasks:
-   - name: username, password
-     ansible.builtin.debug:
-      msg: "Hi your username is {{ Username }}, Password is {{ Password }}"
 
-     
+    - name: password
+      prompt: "Please enter the PASSWORD: "
+      private: true
+
+  tasks:
+    - name: Show entered credentials
+      ansible.builtin.debug:
+        msg: "Hi, your username is {{ username }}, and your password is {{ password }}"
+
      
