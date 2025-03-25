@@ -2,7 +2,7 @@
   become: true
   hosts: localhost
   var:
-  -  course: "Devops"
+    course: "Devops"
   vars_prompt:
     - name: username
       prompt: "Please enter the USERNAME: "
