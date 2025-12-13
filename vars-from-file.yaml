@@ -1,0 +1,9 @@
+- name: Varaibles
+  become: true
+  hosts: localhost
+  vars_files:
+  - vars.yaml
+  tasks:
+  -  name: Variables
+     ansible.builtin.debug:
+       msg: "Im taking the {{Course}} from {{Name}}, The duration is {{Duration}}"
