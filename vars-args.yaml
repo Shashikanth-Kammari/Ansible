@@ -8,6 +8,6 @@
 
 #if we are not mentioned in the variable values we can pass the values through the ansible while running
 #command is
-#ansible-playbook -i inventory ansibrl_user=ec2-user ansible_password=Devops321 vars-args.yaml -e "Cloud=AWS Server=ec2"
+#ansible-playbook -i inventory.ini -e ansibrl_user=ec2-user ansible_password=Devops321 vars-args.yaml -e "Cloud=AWS Server=ec2"
 
 # so that it will take from the ansible command while running it 
