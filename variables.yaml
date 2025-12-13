@@ -1,12 +1,16 @@
 - name: Varaibles
-  become: true
   hosts: localhost
-  vars:
+  vars:         #variable declaration
     Course: "Devops"
     Name: "shiva"
     Duration: "120hours"
   tasks:
+  -  name: Variables are overrides but not overrides only take task level that is "AWS" 
+     vars:               #this task will take the first prefernce should task level only
+     Course: "AWS"
+     ansible.builtin.debug:
+       msg: "Im taking the {{Course}} from {{Name}}, The duration is {{Duration}}"
+  tasks:
   -  name: Variables
      ansible.builtin.debug:
        msg: "Im taking the {{Course}} from {{Name}}, The duration is {{Duration}}"
-    
