@@ -1,4 +1,4 @@
-- name: Installing and Run the Nginx server
+- name: Installing and Run the Nginx server through ansible
   become: true
   hosts: localhost
   tasks:
