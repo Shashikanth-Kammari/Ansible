@@ -1,6 +1,9 @@
 - name: configuring backend server
   become: true
   hosts: backend
+  vars:
+    login_host: <url>
+    login_password: Expenseapp@312
   tasks:
     - name: disabling default nodejs
       ansible.builtin.command: dnf module disable nodejs -y
@@ -34,3 +37,16 @@
       ansible.builtin.copy:
         src: backend.service
         dest: <destination for remote server>
+    - name: install python mysql dependencies
+      ansible.builtin.pip:
+        name:
+        - PyMySQL     #to connect Mysql DB from ansible
+        - cryptography
+        executable: pip3.9  #pip3.11 if python version is 3.11
+    - name: import data into MySQL
+      community.mysql.mysql_db:
+        login_host: "{{ login_host }}"
+        login_password: "{{ login_password }}"
+        login_user: root
+        target: /app/schema/backend.sql
+        state: dump
