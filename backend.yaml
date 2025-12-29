@@ -49,5 +49,5 @@
         login_password: "{{ login_password }}"
         login_user: root
         target: /app/schema/backend.sql
-        state: dump
+        state: import
         name: all
