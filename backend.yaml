@@ -26,3 +26,7 @@
         src: /tmp/backend.zip
         dest: /app
         remote_src: yes
+    - name: install npm dependency
+      ansible.builtin.command: dnf intall npm
+      args:
+        chdir: /app 
