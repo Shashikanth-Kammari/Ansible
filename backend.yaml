@@ -30,7 +30,7 @@
       ansible.builtin.command: dnf intall npm
       args:
         chdir: /app 
-    - name: copy the service
+    - name: copy the service to remote server from ansible server
       ansible.builtin.copy:
         src: backend.service
         dest: <destination for remote server>
