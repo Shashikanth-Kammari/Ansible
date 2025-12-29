@@ -11,8 +11,11 @@
       ansible.builtin.command: dnf module enable nodejs:20 -y
     - name: instal nodejs:20
       ansible.builtin.dnf:
-        name: nodejs
+        name: "{{ item }}"
         state: installed
+      loop:
+      - nodejs
+      - mysql 
     - name: create expense user
       ansible.builtin.user:
       name: expense
