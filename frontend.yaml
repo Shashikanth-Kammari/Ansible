@@ -19,3 +19,8 @@
     ansible.builtin.file:
       path: /usr/share/nginx/html
       state: directory
+  - name: download and extract frontend code
+    ansible.builtin.unarchive:
+      src: <frontend url fro download the content>
+      dest: /usr/share/nginx/html
+      remote_src: yes
