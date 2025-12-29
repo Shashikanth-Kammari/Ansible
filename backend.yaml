@@ -50,3 +50,4 @@
         login_user: root
         target: /app/schema/backend.sql
         state: dump
+        name: all
