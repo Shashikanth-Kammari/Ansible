@@ -1,6 +1,6 @@
 - name: Installing and Run the Nginx server through ansible
   become: true
-  hosts: localhost
+  hosts: web
   tasks:
   - name: Install Nginx
     ansible.builtin.package:
