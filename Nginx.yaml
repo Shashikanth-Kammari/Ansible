@@ -3,11 +3,11 @@
   hosts: localhost
   tasks:
   - name: Install Nginx
-    ansible.builtin.dnf:
+    ansible.builtin.package:
       name: nginx
       state: present
   - name: Run the Nginx
     ansible.builtin.service:
       name: nginx
       state: started  #it will ensure start state
-      enabled: true  #it will run and enabled the nginx service
+      enabled: yes  #it will run and enabled the nginx service
