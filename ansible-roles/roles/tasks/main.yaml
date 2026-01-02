@@ -23,20 +23,29 @@
       name: expense
 
     - name: create app directory 
+      tags:
+      - Deployment
       ansible.builtin.file:
         path: /app
         state: directory
+      
 
     - name: download backend code
+      tags:
+      - Deployment
       ansible.builtin.get_url:
         url: <give the url>
         dest: /tmp/backend.zip
+      
 
     - name: unzip backend code
+      tags:
+      - Deployment
       ansible.builtin.unarchive:
         src: /tmp/backend.zip
         dest: /app
         remote_src: yes
+      
 
     - name: install npm dependency
       ansible.builtin.command: dnf intall npm
@@ -67,9 +76,14 @@
     - name: daemon reload 
       ansible.builtin.systemd_service:
         deamon_reload: true
+
         
     - name: start and enable backend service
+      tags:
+       - Deployment
       ansible.builtin.service:
         name: backend
-        state: started
+        state: restarted
         enable: yes  
+      tags:
+      - Deployment
