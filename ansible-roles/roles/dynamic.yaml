@@ -1,0 +1,13 @@
+- name: install prefix
+  hosts: backend
+  become: yes
+  tasks:
+  - name: installing the prefix
+    ansible.builtin.dnf:
+    - name: prefix
+      stateL: latest 
+
+
+# after giving we need to run command below
+
+# ansible-playbook -i aws_ec2.yaml -e ansible_user=ec2_user -e ansible_password=Devops321 dynamci.yaml
