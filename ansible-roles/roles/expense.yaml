@@ -1,0 +1,28 @@
+- name: Create EC2 instances
+  hosts: localhost
+  connection: local
+  gather_facts: no
+
+  vars:
+    zone: daws78s.online
+    instances:
+      - db
+      - backend
+      - frontend
+
+  tasks:
+    - name: Create EC2 instance
+      amazon.aws.ec2_instance:
+        region: us-east-1
+        instance_type: t2.micro
+        name: "{{ item }}.{{ zone }}"
+        security_group: allow_everything
+        image_id: ami-098437843646367   # example AMI
+        tags:
+          Name: "{{ item }}.{{ zone }}"
+      loop: "{{ instances }}"
+      register: ec2_instance_info
+
+    - name: Output EC2 details
+      ansible.builtin.debug:
+        msg: "Output: {{ ec2_instance_info }}"
